@@ -1,0 +1,17 @@
+.nav {
+  background-color: black;
+
+  .nav-item {
+    font-size: 15pt;
+    font-weight: bold;
+
+    .nav-link {
+      color: white;
+      transition: 0.3s;
+    }
+
+    .nav-link:hover {
+      color: red;
+    }
+  }
+}
