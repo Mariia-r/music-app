@@ -1,3 +1,5 @@
+import {updateObjectInArray} from "../components/common";
+
 export const GET_SONGS = "GET_SONGS";
 const SET_SONGS = "SET_SONGS";
 const LIKE_SONG = "LIKE_SONG";
@@ -17,7 +19,7 @@ const songsReducer = (state = initialState, action) => {
         case LIKE_SONG: {
             return {
                 ...state,
-                songs: [...state.songs, state.songs.find(item => item.title.label === action.titleSong && (item.like = true))]
+                songs: updateObjectInArray(state.songs, action.titleSong,{like: true})
             }
         }
         default:
