@@ -1,8 +1,6 @@
-import {updateObjectInArray} from "../components/common";
-
 export const GET_SONGS = "GET_SONGS";
 const SET_SONGS = "SET_SONGS";
-const LIKE_SONG = "LIKE_SONG";
+const LIKE_UNLIKE_SONG = "LIKE_UNLIKE_SONG";
 
 let initialState = {
     songs: [],
@@ -16,10 +14,10 @@ const songsReducer = (state = initialState, action) => {
                 songs: action.songs
             }
         }
-        case LIKE_SONG: {
+        case LIKE_UNLIKE_SONG: {
             return {
                 ...state,
-                songs: updateObjectInArray(state.songs, action.titleSong,{like: true})
+                songs: state.songs.map(song => song.title.label === action.titleSong ? {...song, like: !song.like} : song)
             }
         }
         default:
@@ -34,8 +32,8 @@ export const acGetSongs = () => {
 export const acSetSongs = (songs) => {
     return { type: SET_SONGS, songs }
 };
-export const acLikeSong = (titleSong) => {
-    return { type: LIKE_SONG, titleSong }
+export const acLikeUnlikeSong = (titleSong) => {
+    return { type: LIKE_UNLIKE_SONG, titleSong }
 }
 
 export default songsReducer;

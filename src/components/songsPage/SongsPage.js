@@ -11,7 +11,7 @@ const SongsPage = ({songs, acGetSongs}) => {
     useEffect(() => {
         acGetSongs();
             setTimeout(() => {
-                setIsLoaded(true);}, 2000);
+                setIsLoaded(true);}, 1000);
         }, []
     );
 

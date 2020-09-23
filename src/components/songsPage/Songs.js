@@ -1,9 +1,10 @@
-import React, {useState, useEffect} from "react";
+import React from "react";
 import './Songs.scss';
 import {connect} from "react-redux";
-import {acLikeSong} from "../../store/songs-reducer";
+import {acLikeUnlikeSong} from "../../store/songs-reducer";
 
-const Songs = ({songs, acLikeSong}) => {
+const Songs = ({songs, acLikeUnlikeSong}) => {
+    console.log(songs)
     return (
         <div className="songs-list">
             {songs.map((song, index) => {
@@ -12,9 +13,7 @@ const Songs = ({songs, acLikeSong}) => {
                         <span className="song-item-number">{index + 1}</span>
                         <span className="artist-name">{song["im:artist"].label}</span>
                         <span> &ndash; {song["im:name"].label}</span>
-                        <span className="icon-like" onClick={(e) => {acLikeSong(song.title.label)}}>
-                            {song.like ? "Unlike" : "Like"}
-                        </span>
+                        <button className={`icon-reaction ${song.like ? "unlike" : "like"}`} onClick={(e) => {acLikeUnlikeSong(song.title.label)}}/>
                     </div>
                 );
             })}
@@ -22,4 +21,4 @@ const Songs = ({songs, acLikeSong}) => {
     );
 }
 
-export default connect(null, {acLikeSong})(Songs);
+export default connect(null, {acLikeUnlikeSong})(Songs);

@@ -12,9 +12,18 @@
     font-size: 15pt;
   }
 
-  .icon-like {
+  .icon-reaction {
     float: right;
-    padding-left: 40px;
+    border: none;
+    outline: none;
     cursor: pointer;
+    width: 30px;
+    height: 30px;
+    background-size: cover;
+    background-image: url("../../images/like-128x128.png");
+  }
+
+  .unlike {
+    transform: rotate(180deg);
   }
 }
