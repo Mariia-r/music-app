@@ -1,0 +1,14 @@
+.song-item {
+  text-align: left;
+  border: 1px solid black;
+  padding: 15px;
+
+  .song-item-number {
+    padding-right: 15px;
+  }
+
+  .artist-name {
+    font-weight: bold;
+    font-size: 15pt;
+  }
+}

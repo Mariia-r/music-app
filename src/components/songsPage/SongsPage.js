@@ -3,6 +3,7 @@ import {connect} from "react-redux";
 import {compose} from "redux";
 import './SongsPage.scss';
 import {acGetSongs} from "../../store/songs-reducer";
+import Songs from "./Songs";
 
 const SongsPage = ({songs, acGetSongs}) => {
     const [isLoaded, setIsLoaded] = useState(false);
@@ -14,11 +15,9 @@ const SongsPage = ({songs, acGetSongs}) => {
         }, []
     );
 
-    console.log(songs)
-
     return (
         <div className="songs-page">
-            {isLoaded ? "Songs Page" : "Loading"}
+            {isLoaded ? <Songs songs={songs}/> : "Loading"}
         </div>
     );
 }
