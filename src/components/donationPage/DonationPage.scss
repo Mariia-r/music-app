@@ -1,0 +1,126 @@
+$colorFilledSlider: #FF4500;
+$colorEmptySlider: #F8F8FF;
+
+.donation-page {
+  margin-top: 15px;
+  text-align: left;
+
+  .donation-remain {
+    display: none;
+    position: absolute;
+    right: 43%;
+    top: 85px;
+    width: 250px;
+    background-color: gray;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+
+    span {
+      font-weight: bold;
+    }
+  }
+
+  .donation-range-wrapper:hover {
+    .donation-remain {
+      display: block;
+    }
+  }
+
+  input.donation-range-input:disabled {
+    overflow: hidden;
+    width: 100%;
+    -webkit-appearance: none;
+    outline : none;
+    border: 1px solid #D4D4D4;
+  }
+
+  input[type='range'] {
+    -webkit-appearance: none;
+    background-color: $colorEmptySlider;
+    height: 20px;
+    overflow: hidden;
+    width: 400px;
+  }
+
+  input[type='range']::-webkit-slider-runnable-track {
+    -webkit-appearance: none;
+    height: 20px;
+  }
+
+  input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    box-shadow: -1000px 0 0 1000px $colorFilledSlider;
+    width: 1px;
+    border: 0;
+  }
+
+  input[type='range']::-moz-range-thumb {
+    background: #333;
+    border-radius: 50%;
+    box-shadow: -1010px 0 0 1000px $colorFilledSlider;
+    cursor: pointer;
+    height: 20px;
+    width: 20px;
+    border: 0;
+  }
+
+  input[type="range"]::-moz-range-track {
+    background-color: $colorEmptySlider;
+  }
+  input[type="range"]::-moz-range-progress {
+    background-color: $colorFilledSlider;
+  }
+  input[type="range"]::-ms-fill-upper {
+    background-color: $colorEmptySlider;
+  }
+  input[type="range"]::-ms-fill-lower {
+    background-color: $colorFilledSlider;
+  }
+
+  .donation-content {
+    border: 1px solid #D4D4D4;
+    margin-top: -6px;
+    padding: 25px;
+    color: grey;
+  }
+
+  p {
+    margin-top: 1rem;
+  }
+
+  .donation-form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5rem;
+
+    .prefix-input {
+      padding-left: 10px;
+      position: absolute;
+      color: grey;
+      font-size: 18pt;
+      font-weight: bold;
+    }
+
+    input {
+      border: 1px solid grey;
+      padding-left: 30px;
+      font-size: 15pt;
+      font-weight: bold;
+      width: 160px;
+    }
+
+    input, button {
+      border-radius: 5px;
+      outline: none;
+      height: 50px;
+    }
+
+    .donation-btn {
+      background-color: limegreen;
+      color: white;
+      font-weight: bold;
+      margin-left: 20px;
+    }
+  }
+}

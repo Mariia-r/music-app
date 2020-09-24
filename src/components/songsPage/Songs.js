@@ -4,7 +4,6 @@ import {connect} from "react-redux";
 import {acLikeUnlikeSong} from "../../store/songs-reducer";
 
 const Songs = ({songs, acLikeUnlikeSong}) => {
-    console.log(songs)
     return (
         <div className="songs-list">
             {songs.map((song, index) => {

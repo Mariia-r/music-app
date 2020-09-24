@@ -16,5 +16,4 @@ const NavBar = (props) => {
     );
 }
 
-
 export default compose(React.memo)(NavBar);

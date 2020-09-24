@@ -17,7 +17,7 @@ function App() {
               render={() => <SongsPage/>}/>
             <Route
               path="/donation"
-              render={ () => <DonationPage/>}/>
+              render={() => <DonationPage/>}/>
         </Switch>
       </div>
     </div>
