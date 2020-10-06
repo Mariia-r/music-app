@@ -7,11 +7,12 @@
 
     .nav-link {
       color: white;
-      transition: 0.3s;
+      transition: 0.5s;
     }
 
-    .nav-link:hover {
+    .nav-link:hover, .nav-link.active-link {
       color: red;
     }
   }
 }
+

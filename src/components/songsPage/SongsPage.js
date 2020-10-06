@@ -4,20 +4,25 @@ import {compose} from "redux";
 import './SongsPage.scss';
 import {acGetSongs} from "../../store/songs-reducer";
 import Songs from "./Songs";
+import SearchInput from "./SearchInput";
 
 const SongsPage = ({songs, acGetSongs}) => {
     const [isLoaded, setIsLoaded] = useState(false);
+    const [filterText, setFilterText] = useState("");
 
     useEffect(() => {
         acGetSongs();
-            setTimeout(() => {
-                setIsLoaded(true);}, 1000);
+        setTimeout(() => {
+            setIsLoaded(true);}, 1000);
         }, []
     );
 
+    let filteredSongs = songs.filter((song) => song.title.label.toLowerCase().indexOf(filterText.toLowerCase()) !== -1);
+
     return (
-        <div className="songs-page">
-            {isLoaded ? <Songs songs={songs}/> : "Loading"}
+        <div className="songs-page container">
+            <SearchInput filterText={filterText} setFilterText={setFilterText}/>
+            {isLoaded ? <Songs songs={filteredSongs}/> : "Loading"}
         </div>
     );
 }

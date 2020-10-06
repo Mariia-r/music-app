@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useState, useRef} from "react";
 import {compose} from "redux";
 import './DonationPage.scss';
 import {connect} from "react-redux";
@@ -6,6 +6,7 @@ import {acSetSDonation} from "../../store/donation-reducer";
 
 const DonationPage = ({donation, acSetSDonation}) => {
     const [donationUser, setDonationUser] = useState("");
+    const hint = useRef(0)
     let remainNeededDonat = 1000 - donation;
 
     const setFormatUserDonation = (value) => {
@@ -16,15 +17,20 @@ const DonationPage = ({donation, acSetSDonation}) => {
     const sendDonation = () => {
         acSetSDonation(Number(donationUser));
     }
+     const displayHint = (e) => {
+        hint.current.style.left = `${e.clientX}px`;
+     }
 
     return (
         <div className="donation-page container">
             <div className="donation-range-wrapper">
                 {remainNeededDonat > 0 &&
-                <div className="donation-remain">
+                <div className="donation-remain" ref={hint}>
                     <span>&#36;{remainNeededDonat}</span> still needed for this project.
                 </div>}
-                <input type="range" id="donation" className="donation-range-input" min="0" max="1000" step="1" disabled value={donation}/>
+                <input type="range" id="donation" className="donation-range-input"
+                       min="0" max="1000" step="1" disabled value={donation}
+                       onMouseOver={(e) => displayHint(e)}/>
             </div>
             <div className="donation-content">
                 <span>

@@ -1,29 +1,55 @@
-.song-item {
-  text-align: left;
+.songs-list {
   border: 1px solid black;
-  padding: 15px;
+  border-radius: 5px;
 
-  .song-item-number {
-    padding-right: 15px;
+  .song-item {
+    text-align: left;
+    border-bottom: 1px solid black;
+    padding: 15px 15px 15px 0;
+    font-size: 14pt;
+
+    .song-item-number {
+      display: inline-block;
+      width: 40px;
+      text-align: center;
+    }
+
+    .artist-name {
+      font-weight: bold;
+    }
+
+    .icon-reaction {
+      float: right;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      width: 30px;
+      height: 30px;
+      background-size: cover;
+      background-color: white;
+      background-image: url("../../images/like-128x128.png");
+    }
+
+    .unlike {
+      transform: rotate(180deg);
+    }
   }
 
-  .artist-name {
-    font-weight: bold;
-    font-size: 15pt;
+  .song-item:last-child {
+    border-bottom: none;
   }
+}
 
-  .icon-reaction {
-    float: right;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    width: 30px;
-    height: 30px;
-    background-size: cover;
-    background-image: url("../../images/like-128x128.png");
-  }
+@media only screen and (max-width: 767px) {
+  .songs-list {
+    .song-item {
+      padding: 10px 5px 10px 0;
+      font-size: 11pt;
 
-  .unlike {
-    transform: rotate(180deg);
+      .icon-reaction {
+        width: 20px;
+        height: 20px;
+      }
+    }
   }
 }

@@ -1,16 +1,16 @@
 import React from "react";
 import {compose} from "redux";
 import './NavBar.scss';
-import {Link} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const NavBar = (props) => {
     return (
         <ul className="nav justify-content-center">
             <li className="nav-item">
-                <Link to="/songs" className="nav-link">Songs</Link>
+                <NavLink to="/songs" className="nav-link" activeClassName="active-link">Songs</NavLink>
             </li>
             <li className="nav-item">
-               <Link to="/donation" className="nav-link">Donation</Link>
+               <NavLink to="/donation" className="nav-link" activeClassName="active-link">Donation</NavLink>
            </li>
         </ul>
     );
